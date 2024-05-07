@@ -1,0 +1,111 @@
+// exercise #9
+
+
+
+
+$LengthValue = (float) readline("Write your weight:  " );
+$Unit = (string) readline("Select unit in meters, centimeters or millimeters: ");
+
+$ConvertedValue = function (float $LengthValue, string $Unit) {
+    if($LengthValue < 0) {
+        echo " Error! ";
+    } else {
+        function findDecimalPointPosition($floatNumber)
+        {
+            $floatStr = strval($floatNumber);
+            $dotPosition = strpos($floatStr, '.');
+            if ($dotPosition === false) {
+                return "No decimal point found";
+            } else {
+                return ($dotPosition + 1);
+            }
+        }
+        function numberStringLength($number) {
+            // Convert the number to a string
+            $numberString = strval($number);
+
+            // Count the length of the string
+            $length = strlen($numberString);
+
+            return $length;
+        }
+
+        if ($Unit == "m") {
+            if (findDecimalPointPosition($LengthValue) === 1) {
+                return $LengthValue / 0.0254;
+            } elseif (numberStringLength ) {
+                echo
+}
+        } elseif ($Unit == "cm") {
+
+        }
+    }
+}
+
+
+
+
+
+
+
+<?php
+
+declare(strict_types = 1);
+
+
+// Exercise #9
+
+
+$LengthValue = (float)readline("Write your Height:  ");
+$Unit = (string)readline("Select unit in meters, centimeters or millimeters: ");
+
+$ConvertedValue = function (float $LengthValue, string $Unit) {
+    if ($LengthValue < 0) {
+        echo "Error! Weight cannot be negative.";
+    } else {
+        function findDecimalPointPosition($floatNumber)
+        {
+            $floatStr = strval($floatNumber);
+            $dotPosition = strpos($floatStr, '.');
+            if ($dotPosition === false) {
+                return "No decimal point found";
+            } else {
+                return ($dotPosition + 1);
+            }
+        }
+
+        function numberStringLength($number) {
+            // Convert the number to a string
+            $numberString = strval($number);
+
+            // Count the length of the string
+            $length = strlen($numberString);
+
+            return $length;
+        }
+
+        if ($Unit == "m") {
+            // Convert meters to inches
+            if (findDecimalPointPosition($LengthValue) === 1) {
+                // If the decimal point is at the beginning (e.g., 0.5 meters)
+                return $LengthValue / 0.0254;
+            } else {
+                // If the number has more digits (e.g., 1.5 meters)
+                return $LengthValue * 39.3701;
+            }
+        } elseif ($Unit == "cm") {
+            // Convert centimeters to inches
+            return $LengthValue / 2.54;
+        } elseif ($Unit == "mm") {
+            // Convert millimeters to inches
+            return $LengthValue / 25.4;
+        } else {
+            return "Invalid unit!";
+        }
+    }
+};
+
+echo "Converted value: " . $ConvertedValue($LengthValue, $Unit) . "\n";
+
+
+
